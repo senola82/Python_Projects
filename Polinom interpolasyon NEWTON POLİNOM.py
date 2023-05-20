@@ -5,7 +5,7 @@ Created on Fri Apr 28 21:58:43 2023
 @author: senol.a82@hotmail.com
 """
 
-# İKİ BİLİNMEYENLİ NEWTON POLİNOM HESAPLAMASI
+# İKİ BİLİNMEYENLİ NEWTON POLİNOMlARI HESAPLAMASI
 
 import math
 e=math.e
@@ -16,7 +16,7 @@ log=math.log
 
 def f(x):    
     sonuc=float(log(x))        # POLİNOM FONKSİYON BURAYA YAZILACAK
-    
+   # sonuc=float(e**x)
     return sonuc
 
 
@@ -29,18 +29,17 @@ def newton_polinom(x0,x1,x):
 
 
 #-------------------------------- VERİLER   BURAYA YAZILACAK
-x0 = 0.2      #a 
-x1 = 0.3      #b
-x=  0.23      #istenen değer  
+x0 = 1           #a 
+x1 = 6           #b
+x=   2            #istenen değer  
 
 
 print("""
-FORMÜL 
+
 -------
 h=b-a
-
-
-
+#deltY= f(b)-f(a) 
+                              FORMÜL                               
 ------------------------------------------------------------------------
 |              f(b)-f(a)                          f(x1)-f(x0)          |
 | y = f(a) +   --------- * (x-a)   veya   f(x0)+  ---------- *(x -x0)  |
@@ -48,12 +47,12 @@ h=b-a
 ------------------------------------------------------------------------
 
 """)
+                    
+print("\n-------------------------------FORMÜLDE YERİNE YAZMA---------------------------------------")
 
-print("\n\n------------------------------------------------------------------")
-
-print("               (%.4f" % f(x1),") - (%.4f" % f(x0),")")
-print("y = %.4f"% f(x0),"+  ------------------------  * (%.2f" %x, "- %.2f" % x0,") = %.4f" % newton_polinom(x0,x1,x))
-print("                   %.4f"% x1, "-"," %.4f"% x0)
+print("               (%.4f" % f(x1),") - (%.4f" % f(x0),")                              %.4f" %float(f(x1)-f(x0)))
+print("y = %.4f"% f(x0),"+  ------------------------ *(%.2f" %x, "- %.2f" % x0,")=%.4f"% f(x0), "+ ----------- * (%.2f" %(x-x0),")= %.4f" % newton_polinom(x0,x1,x))
+print("                   %.4f"% x1, "-"," %.4f"% x0,"                              %.4f"%float(x1-x0))
 
 
-print("----------------------------------------------------------------------")
+print("-------------------------------------------------------------------------------------------")
