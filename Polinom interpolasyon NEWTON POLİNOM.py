@@ -29,9 +29,9 @@ def newton_polinom(x0,x1,x):
 
 
 #-------------------------------- VERİLER   BURAYA YAZILACAK
-x0 = 0.2           #a 
-x1 = 0.3           #b
-x=   0.23               #istenen değer  
+x0 = 0.20           #a 
+x1 = 0.30           #b
+x=   0.26         #istenen değer  
 
 
 print("""
