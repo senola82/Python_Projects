@@ -13,7 +13,7 @@ log=math.log
 #---------------------------------------------------------------------- DEĞERLERİ YERİNE YAZ
 
 def f(x):
-    return (e**x) + 1 #hocanın derste yazdığı fonksiyon
+    return (e**x) + 1 # fonksiyon
     #return (x**2) + 3 
     #♠return 2*(x**2)+(3*x)-2 
 
@@ -28,11 +28,11 @@ liste=[[],[],[],[],[],[],[]]
 
 derece = float(input("kaçıncı dereceden ileri sonlu olsun: "))
 
-if (derece == 0.0): # derece 0 ise 1 tane yazdırmalı
+if (derece == 0.0): 
     print(f(h))
     exit(1)
 
-baslangic = derece + 1.0 #derecenin 1 fazlası 0. derecenin kaçtan başlayacağını belirler
+baslangic = derece + 1.0 
 
 baslangic2=derece
 a=[]
@@ -46,12 +46,13 @@ for i in range(0,int(baslangic2)):
     
     
 
-for i in a: # 0. dereceden ileri sonlu değer.
+for i in a: 
     liste[0].append(f(x0))
     x0 += h
 
 
 # LİSTE VERİLİRSE BURAYA GİR (FONKSİYON VERİLMEZSE )
+
 #liste[0]=[-7.0,-3.0,6.0,25.0,62.0,129.0]
 #liste[0]=[3.718,8.389,21.086,55.598]
 
