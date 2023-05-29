@@ -1,0 +1,139 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sun May 28 17:55:34 2023
+
+@author: senol.a82@hotmail.com
+"""
+import math
+e=math.e
+pi=math.pi
+log=math.log
+
+
+#---------------------------------------------------------------------- DEĞERLERİ YERİNE YAZ
+
+def f(x):
+    return (e**x) + 1 #hocanın derste yazdığı fonksiyon
+    #return (x**2) + 3 
+    #♠return 2*(x**2)+(3*x)-2 
+
+x0, h = 1.0, 1.0   # h ve x0 değerlerini düzelt
+y=0                # türevi istenen nokta  yazılacak. tablodaki x e karşılık len değerin 1 eksiği yani 1 isteniyorsa x 1 den başlıyorsa Y=0 ALINACAK
+
+
+#--------------------------------------------------------------------------------
+
+hfark=x0
+liste=[[],[],[],[],[],[],[]]
+
+derece = float(input("kaçıncı dereceden ileri sonlu olsun: "))
+
+if (derece == 0.0): # derece 0 ise 1 tane yazdırmalı
+    print(f(h))
+    exit(1)
+
+baslangic = derece + 1.0 #derecenin 1 fazlası 0. derecenin kaçtan başlayacağını belirler
+
+baslangic2=derece
+a=[]
+for i in range(0,int(baslangic)):
+    a.append(float(i))
+    
+b=[]
+for i in range(0,int(baslangic2)):
+    b.append(float(i))
+    
+    
+    
+
+for i in a: # 0. dereceden ileri sonlu değer.
+    liste[0].append(f(x0))
+    x0 += h
+
+
+# LİSTE VERİLİRSE BURAYA GİR (FONKSİYON VERİLMEZSE )
+#liste[0]=[-7.0,-3.0,6.0,25.0,62.0,129.0]
+#liste[0]=[3.718,8.389,21.086,55.598]
+
+
+
+    
+
+
+
+
+#İLERİ FARK OPERATÖRÜ İÇİN bunu aktif et   
+for ii in b:     
+    for i in range(0, len(liste[int(ii)])-1):       
+            liste[int(ii)+1].append((liste[int(ii)][i+1] - liste[int(ii)][i]))        
+      
+       
+"""
+#GERİ  FARK OPERATÖRÜ İÇİN  bunu aktif et
+for ii in b:
+    for i in range(0, len(liste[int(ii)])-1):
+        liste[int(ii)+1].append((liste[int(ii)][i] - liste[int(ii)][i+1])) 
+        
+""" 
+
+
+
+    
+
+             
+print("\n-------------------------------FARK TABLOSU-------------------------------------------------\n")
+
+j=0
+j2=0
+print(" x    -      f   -      df   -     d^2f   -   d^3f  -    d^4f    -     d^5f    -  d^6f  ")
+
+for ii in range(0,len(a)): #İLERİ FARK bunu aktif et
+    print(hfark,end=" ")
+    for i in range(0, len(liste[int(ii)])):       
+        print("     %.4f"%(liste[j][j2]),end=" ")
+        j+=1
+    j2+=1
+    j=0
+    hfark+=h
+    print("\n")
+
+
+print("""
+-------------------------------------------------------------------------
+                            TÜREV FORMÜLÜ                               
+-------------------------------------------------------------------------
+|      1            delta^2   delta^3   delta^4   delta^5    ....       |
+| D = --- *(delta - ------- + ------- - ------- + ------- - ---- )*f(x) |
+|      h              2          3         4        5        ...        |
+-------------------------------------------------------------------------
+""")
+
+print("\n---------------TÜREV FORMÜLÜNDE YERİNE YAZMA -------------------------------------")
+
+print("         1             %.4f"%liste[2][int(y)],"     %.4f"%liste[3][int(y)])#,"    %.4f"%liste[4][int(y)],"    %.4f"%liste[5][int(y)] )   
+print("Df(x) = -- * (%.4f"%liste[1][int(y)],"-  -------- + ------- - ------- + -------- )" )
+print("       ",h, "             2          3         4         5    ")   
+      
+print("f'(",y,")=%.4f"%((1/h)*((liste[1][int(y)]/1)-(liste[2][int(y)]/2)+(liste[3][int(y)]/3) )))#-(liste[4][int(y)]/4)+(liste[5][int(y)]/5))))
+    
+
+
+print("""
+--------------------------------------------------------------------------------------
+                              İNTEGRAL  FORMÜLÜ                                            
+---------------------------------------------------------------------------------
+|                           delta    delta^2   delta^3   delta^4     ....        |
+| int xiden xi+h =  h *(1 + ------- - ------ + ------- - ------- + -------)*f(x) |
+|                             2        12       24         720        ...        |
+---------------------------------------------------------------------------------
+""")
+
+
+print("\n---------------İNTEGRAL FORMÜLÜNDE YERİNE YAZMA -------------------------------------")
+
+print("                                         %.4f"%liste[1][int(y)],"     %.4f"%liste[2][int(y)],"    %.4f"%liste[3][int(y)] )#,"    %.4f"%liste[4][y] )   
+print("int xiden xi+h f(x)dx =" ,h, " * (%.4f"%liste[0][int(y)],"+  -------- - ------- + ------- - -------- )" )
+print("                                            2          12         24         720    ")   
+      
+print("f(",y,")=%.4f"%((h)*((liste[0][int(y)]/1)+(liste[1][int(y)]/2)-(liste[2][int(y)]/12)+(liste[3][int(y)]/24) )))#-(liste[4][int(y)]/720))))
+    
