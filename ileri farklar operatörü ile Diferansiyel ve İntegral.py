@@ -17,7 +17,7 @@ def f(x):
     return (x**2) + 1 
     #♠return 2*(x**2)+(3*x)-2 
 
-x0, h = 0.0, 1.0   # h ve x0 değerlerini düzelt
+x0, h = 0.0, 0.25   # h ve x0 değerlerini düzelt
 
 
 #--------------------------------------------------------------------------------
@@ -27,7 +27,7 @@ liste=[[],[],[],[],[],[],[],[]]
 
 derece = float(input("kaçıncı dereceden ileri sonlu olsun: "))
 
-y=int(input("istenen fonksiyonu giriniz : "))  # türevi istenen nokta  yazılacak. tablodaki x e karşılık len değerin 1 eksiği yani 1 isteniyorsa x 1 den başlıyorsa Y=0 ALINACAK
+y=float(input("istenen fonksiyonu giriniz : "))  # türevi istenen nokta  yazılacak. tablodaki x e karşılık len değerin 1 eksiği yani 1 isteniyorsa x 1 den başlıyorsa Y=0 ALINACAK
 
 if x0==1.0:
     y=y-1
@@ -88,7 +88,7 @@ for i in range(0, len(liste[0])):
 
 
     
-
+hlist=[]
              
 print("\n-------------------------------FARK TABLOSU-------------------------------------------------\n")
 
@@ -98,6 +98,7 @@ print(" x    -      f   -      df   -     d^2f   -   d^3f  -    d^4f    -     d^
 
 for ii in range(0,len(liste[0])): #İLERİ FARK bunu aktif et
     print(hfark,end=" ")
+    hlist.append(hfark)
     for i in range(0, len(liste[int(ii)])+1):       
         if (liste[j][j2])!="":
             print("     %.4f"%(liste[j][j2]),end=" ")
@@ -143,7 +144,7 @@ print("""
 
 print("\n---------------İNTEGRAL FORMÜLÜNDE YERİNE YAZMA -------------------------------------")
 
-print("                                         %.4f"%liste[1][int(y)],"    %.4f"%liste[2][int(y)],"   %.4f"%liste[3][int(y)] ,"    %.4f"%liste[4][y] )   
+print("                                         %.4f"%liste[1][int(y)],"    %.4f"%liste[2][int(y)],"   %.4f"%liste[3][int(y)] ,"    %.4f"%liste[4][int(y)] )   
 print("int xiden xi+h f(x)dx =" ,h, " * (%.4f"%liste[0][int(y)],"+  -------- - ------- + ------- - -------- )" )
 print("                                            2          12         24         720    ")   
 print("-------------------------------------")      
@@ -155,9 +156,14 @@ print("""
       x^2+1 in integral hesabı için türevi ; x üssü bir arttırılır ve yeni üs değerine bölünür.
       1 in türevi yanında gizli bir x olduğunu gösterir
       
-                   x^3 
-     TÜREV =      ----- + x
-                    3
+                         x^3 
+    x^2+1  TÜREV =      ----- + x
+                          3
            
 """)
+
+print("Analitik çözüm.",end=" ")
+
+print(" = %.4f"%float(((h**3)/3)+h))
+
 print("-----------------------------------------------------------------------------------------")
