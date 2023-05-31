@@ -14,13 +14,9 @@ e = math.e
 pi = math.pi
 cos=math.cos
 
-
-print("f(xz)*f(x2)<0 ifadesini kontrol et")
-print("ÖNCE KÖKÜN VARLIĞINI KONTROL ET")
-
 def polinomhesapla(x):
-    #return ((x**3)-2*(x**2))-5
-    return pow(e,-x)-cos(x)
+    return ((x**3)-2*(x**2))-5
+    #return pow(e,-x)-cos(x)
 
 n=0
 
@@ -28,6 +24,27 @@ a=float(input("Birinci Sayıyı girin ="))
 b=float(input("İkinci Sayıyı girin ="))
 c=0
 sayac=int(input("iterasyon(döngü Sayısı) girin ="))
+
+
+
+print("""                   
+  ÖNCE KÖKÜN VARLIĞINI KONTROL ediyoruz; Eğer  f(x1)*f(x2)<0 ise kök vardır.
+
+           -------------------FORMÜL-------------------
+    
+                             X1 + X2
+                      X3 =  ---------
+                               2 
+                   ------------------------                
+      
+      """)
+      
+print("f(x1) = f(",a,") = (x**3)-2*(x**2))-5 = ",polinomhesapla(a))
+print("f(x2) = f(",b,") = (x**3)-2*(x**2))-5 = ",polinomhesapla(b))
+if (polinomhesapla(a)*polinomhesapla(b))<0:
+    print("f(x1) * f(x2) -->",polinomhesapla(a),"*",polinomhesapla(b),"< 0 -- KÖK VAR\n\n" ) 
+else:
+    print("kök mevcut değil\n")
 
 print("n", "     X1", "         X2", "         X3", "          f(X1)","       f(X2)", "        f(X3)")
 while True:
