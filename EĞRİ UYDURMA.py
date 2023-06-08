@@ -9,8 +9,9 @@ Created on Mon May 15 21:32:57 2023
 import numpy as np
 
 # veri setlerini numpy dizisi olarak tanımla
-x = np.array([0,0.25,0.5,0.75,1])
-y = np.array([1, 1.284 ,1.6487 ,2.117 ,2.7183])
+
+x = np.array([-2, 0, 2,4,6])
+y = np.array([8, -6, -12,10,0])
 
 n = len(x)
 
