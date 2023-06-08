@@ -1,11 +1,12 @@
 import math
 e = math.e
 pi = math.pi
+ln=math.log10
+cos=math.cos
+sin=math.sin
 
-f = lambda x: (e**-x)-x#POLİNOM
-df = lambda x: (-e**-x)-1 #TÜREV
 
-X0=0 # BAŞLANGIÇ DEĞERİ
+X0=1.3 # BAŞLANGIÇ DEĞERİ
 
 print("""
            ÖNCE TEMEL FORMÜLÜ KULLANABİLMEK İÇİN FONKSİYONUN X E GÖRE TÜREVİ ALINIR 
@@ -75,7 +76,10 @@ def fibonacci_estimate():
 
 if __name__ == '__main__':     
    
-    newton_raphson(f, df, X0, 1e-6)#]f fonksiyon df fonksiyorun türevi. ARALIK VERİLİRSE TEK TEK DENE - 0 İ DEĞERİ
+    
+   f = lambda x: (ln(x)-sin(x))#POLİNOM
+   df = lambda x: ((1/x)-cos(x)) #TÜREV
+   newton_raphson(f, df, X0, 1e-6)#]f fonksiyon df fonksiyorun türevi. ARALIK VERİLİRSE TEK TEK DENE - 0 İ DEĞERİ
    
   #  f = lambda x: x**4 - 2*x**3 - 12*x*x + 16*x - 40
   #  df = lambda x: 4*x**3 - 6*x*x - 24*x + 16
