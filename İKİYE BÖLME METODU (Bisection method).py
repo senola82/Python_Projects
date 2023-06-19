@@ -7,7 +7,7 @@ Created on Sat Mar 18 10:09:53 2023
 
 # ARA DEĞER TEOREMİ polinom HESAPLAMASI 
 
-#import math
+
 
 import math
 e = math.e
