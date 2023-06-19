@@ -5,7 +5,7 @@ Created on Mon May 15 21:32:57 2023
 @author: senol
 """
 
-# numpy kütüphanesini içe aktar
+# numpy kütüphanesini içe aktar.
 import numpy as np
 
 # veri setlerini numpy dizisi olarak tanımla
